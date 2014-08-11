@@ -7,7 +7,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    tags = params[:article].delete(:tags).to_s
     @article = Article.new(article_params)
+
+    tags.split(",").each do |name|
+      tag = Tag.find_or_initialize_by(name: name.strip)
+      tag.save!
+      @article.tags << tag
+      end
  
     if @article.save
       redirect_to @article
@@ -29,8 +36,21 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    tags = params[:article].delete(:tags).to_s
+    puts "----------------------"
+    puts tags
     @article = Article.find(params[:id])
-
+    puts "----------------------"
+    @article.tags = []
+    tags.split(",").each do |name|
+      puts name
+      tag = Tag.find_or_initialize_by(name: name.strip)
+      puts tag.name
+      tag.save!
+      @article.tags << tag
+      end
+ 
+    puts "----------------------"
     if @article.update(article_params)
       redirect_to @article
     else

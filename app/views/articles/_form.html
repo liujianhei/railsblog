@@ -15,6 +15,11 @@
   </p>
  
   <p>
+    <%= f.label :tags %>
+    <%= f.text_field :tags, value: @article.tags_list,  style: "width:400px;height:20px" %>
+  </p>
+
+  <p>
     <%= f.cktext_area :text, rows: 10 %>
   </p>
  
