@@ -65,6 +65,21 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
    
+  def autosave
+    tags = params[:article].delete(:tags).to_s
+    @article = Article.new(article_params)
+
+    @article.tags = []
+    tags.split(",").each do |name|
+      tag = Tag.find_or_initialize_by(name: name.strip)
+      tag.save!
+      @article.tags << tag
+      end
+
+    @article.save
+
+    render 'new'
+  end
 
  
 private
