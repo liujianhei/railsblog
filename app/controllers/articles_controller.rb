@@ -3,7 +3,10 @@ class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def new
-    @article = Article.new
+    @article = Article.new(title: "无标题文本")
+    @article.save
+    #redirect_to :action => :edit, :id => @article
+    redirect_to edit_article_path(@article)
   end
 
   def create
