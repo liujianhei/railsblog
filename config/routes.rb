@@ -56,4 +56,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :admin do
+    post 'articles/autosave', as: :autosave_admin_article_path
+    resources :articles
+  end
 end
