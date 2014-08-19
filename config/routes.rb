@@ -11,11 +11,11 @@ Rails.application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-  post 'articles/autosave', as: :autosave_article_path
+#  post 'articles/autosave', as: :autosave_article_path
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :articles
+  resources :articles, only: [:show, :edit, :update, :destroy]
 
   # Example resource route with options:
   #   resources :products do
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   namespace :admin do
-    post 'articles/autosave', as: :autosave_admin_article_path
+    patch 'articles/autosave' => 'articles#autosave', as: :autosave_admin_article_path
     resources :articles
   end
 end

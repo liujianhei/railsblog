@@ -22,7 +22,7 @@ class Admin::ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
-      render 'new_admin'
+      render 'admin/new'
     end
   end
 
@@ -55,9 +55,10 @@ class Admin::ArticlesController < ApplicationController
  
     puts "----------------------"
     if @article.update(article_params)
-      redirect_to @article
+     # redirect_to @article
+      redirect_to admin_article_path(@article)
     else
-      render 'new_admin'
+      render 'admin/new'
     end
   end
 
@@ -81,7 +82,7 @@ class Admin::ArticlesController < ApplicationController
 
     @article.save
 
-    render 'new'
+    render :template => "admin/articles/edit", :id => @article
   end
 
  
