@@ -58,7 +58,7 @@ class Admin::ArticlesController < ApplicationController
      # redirect_to @article
       redirect_to admin_article_path(@article)
     else
-      render 'admin/new'
+      render 'admin/articles/new'
     end
   end
 
@@ -71,7 +71,7 @@ class Admin::ArticlesController < ApplicationController
    
   def autosave
     tags = params[:article].delete(:tags).to_s
-    @article = Article.new(article_params)
+    @article = Article.find(params[:article][:id])
 
     @article.tags = []
     tags.split(",").each do |name|
@@ -82,7 +82,8 @@ class Admin::ArticlesController < ApplicationController
 
     @article.save
 
-    render :template => "admin/articles/edit", :id => @article
+#    render "admin/articles/:id/edit", :id => @article
+    redirect_to edit_admin_article_path(@article)
   end
 
  
