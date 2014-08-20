@@ -81,9 +81,11 @@ class Admin::ArticlesController < ApplicationController
       end
 
     @article.save
+    @article.update(article_params)
 
+    render :nothing => true
 #    render "admin/articles/:id/edit", :id => @article
-    redirect_to edit_admin_article_path(@article)
+#    redirect_to edit_admin_article_path(@article)
   end
 
  
