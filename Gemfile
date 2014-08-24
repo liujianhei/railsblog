@@ -40,3 +40,6 @@ gem 'spring',        group: :development
 
 gem 'paperclip'
 gem 'ckeditor'
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'

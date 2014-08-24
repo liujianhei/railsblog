@@ -3,7 +3,7 @@
 </h2>
  
 <p>
-  <%= @article.text.html_safe %>
+  <%= markdown(@article.text) %>
 </p>
 <p>Tags: <%= @article.tags_list %></p>
     <div id="disqus_thread"></div>
