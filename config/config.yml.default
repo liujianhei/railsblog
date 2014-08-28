@@ -1,0 +1,12 @@
+defaults: &defaults
+  qiniu_access_key: ""
+  qiniu_secret_key: ''
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

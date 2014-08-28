@@ -1,7 +1,7 @@
 ::CarrierWave.configure do |config|
   config.storage             = :qiniu
-  config.qiniu_access_key    = "YYWZohl6D8XCKz0tgsllDcvwdL8QQyABnoHiS9cL"
-  config.qiniu_secret_key    = 'tjhJA2sDDpDHve_y4ZkvBAvK6goJADkx-JSr9kew'
+  config.qiniu_access_key    = Setting.qiniu_access_key
+  config.qiniu_secret_key    = Setting.qiniu_secret_key
   config.qiniu_bucket        = "liujianhong-img"
   config.qiniu_bucket_domain = "liujianhong-img.qiniudn.com"
   config.qiniu_bucket_private= true #default is false
