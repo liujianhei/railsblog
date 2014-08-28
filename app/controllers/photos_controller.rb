@@ -4,9 +4,8 @@ class PhotosController < ApplicationController
   def create
     # 浮动窗口上传
     @photo = Photo.new
-    puts params[:Filedata]
-    #@photo.url = params[:Filedata]
+    @photo.image = params[:Filedata]
     @photo.save
-    render text: @photo.url
+    render text: @photo.image.url
   end
 end

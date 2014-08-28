@@ -1,0 +1,53 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>main</title>
+	    <script src="http://s23.cnzz.com/stat.php?id=1252983721&web_id=1252983721" language="JavaScript"></script>
+        </head>
+    <body>
+        <input type='hidden' id='b5t_redirect_type' value='1' />
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?697a8cdc991bbbac9055c0f3383358da";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+        <script type="text/javascript">
+            var val = [{"app_id":"zdm","link":"http:\/\/zdm.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"5"},{"app_id":"haiwai","link":"http:\/\/haiwai.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"17"},{"app_id":"tejia","link":"http:\/\/tejia.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"15"},{"app_id":"usa","link":"http:\/\/usa.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"7"},{"app_id":"tuan","link":"http:\/\/tuan.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"7"},{"app_id":"you","link":"http:\/\/you.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"8"},{"app_id":"piao","link":"http:\/\/piao.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"7"},{"app_id":"she","link":"http:\/\/she.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"7"},{"app_id":"gzx","link":"http:\/\/gzx.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"6"},{"app_id":"www","link":"http:\/\/www.b5m.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"21"},{"app_id":"u8mai","link":"http:\/\/zixun.u8mai.com\/inline\/content.html?hmsr=b5t_iframe&hmmd=link&utm_source=b5t_iframe&utm_medium=link","probability":"20"}];
+            if(val){
+                var probabilities = [];
+                var total = 0;
+            
+                for(var i = 0;i < val.length;i++){
+                    var item = val[i];
+                    total += parseInt(item.probability);
+                    probabilities.push(total);
+                }
+            
+                var rand = randomArbitrary(0,total);
+            
+                var k = 0;
+                for(k=0;k<probabilities.length;k++){
+                    if(probabilities[k] >  rand){
+                        break;
+                    }
+                }
+            
+                var item = val[k];
+            
+                if(item){
+                    var link = item.link ? item.link : "http://" + item.app_id + ".b5m.com/inline/content.html?hmsr=b5t_iframe";
+                    setTimeout("window.location.href=link",500);
+                }
+            }
+            function randomArbitrary(min,max){
+                return Math.random() * (max - min) + min;
+            }
+        </script>
+    </body>
+</html>
