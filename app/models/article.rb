@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
   has_many :taggings
   has_many :tags, :through => :taggings
 
+  mount_uploader :image, ImageUploader
+
   def tags_list(need_blank=false)
     content = self.tags.collect { |tag| tag.name }.join(", ")
     content = '' if content.blank? and !need_blank
