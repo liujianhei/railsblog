@@ -91,7 +91,11 @@ class Admin::ArticlesController < ApplicationController
  
 private
   def article_params
+<<<<<<< HEAD
     params.require(:article).permit(:title, :text,:status)
+=======
+    params.require(:article).permit(:title, :text,:image)
+>>>>>>> d2a56be79273af1bf4cd3d905e6d4f359fe34c6c
   end
 end
 
