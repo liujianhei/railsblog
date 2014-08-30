@@ -1,6 +1,6 @@
 class Admin::ArticlesController < ApplicationController
  
-  http_basic_authenticate_with name: "dhh", password: "secret"
+  before_action :authenticate_user!
 
   def new
     @article = Article.new(title: "无标题文本")
@@ -91,11 +91,7 @@ class Admin::ArticlesController < ApplicationController
  
 private
   def article_params
-<<<<<<< HEAD
-    params.require(:article).permit(:title, :text,:status)
-=======
-    params.require(:article).permit(:title, :text,:image)
->>>>>>> d2a56be79273af1bf4cd3d905e6d4f359fe34c6c
+    params.require(:article).permit(:title, :text,:status, :image)
   end
 end
 
