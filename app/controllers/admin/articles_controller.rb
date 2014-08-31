@@ -1,7 +1,5 @@
 class Admin::ArticlesController < ApplicationController
  
-  before_action :authenticate_user!
-
   def new
     @article = Article.new(title: "无标题文本")
     @article.save
