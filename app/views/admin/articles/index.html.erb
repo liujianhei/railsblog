@@ -1,5 +1,12 @@
-<ul>
+<h1>Listing Articles</h1>
+<%= link_to 'New article', new_admin_article_path %>
+<table>
 <% @articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article) %>&nbsp;&nbsp;(<%= format_date(article.created_at) %>)</li>
+  <tr>
+    <td><%= link_to article.title, admin_article_path(article) %>&nbsp;&nbsp;(<%= format_date(article.created_at) %>)</td>
+    <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+    <td><%= link_to 'Destroy', admin_article_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
