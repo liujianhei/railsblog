@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
- 
+  before_action :signed_in_user
+
   def new
     @article = Article.new(title: "无标题文本")
     @article.save
@@ -91,5 +92,6 @@ private
   def article_params
     params.require(:article).permit(:title, :text,:status, :image)
   end
+
 end
 

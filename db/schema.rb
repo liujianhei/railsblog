@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831135525) do
+ActiveRecord::Schema.define(version: 20140901021118) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     default: "draft"
     t.string   "image"
+    t.string   "status",     default: "draft"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 20140831135525) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
