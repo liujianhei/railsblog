@@ -7,4 +7,11 @@
   config.qiniu_bucket_private= true #default is false
   config.qiniu_block_size    = 4*1024*1024
   config.qiniu_protocol      = "http"
+
+  config.upyun_username = "liujianhong"
+  config.upyun_password = '*********'
+  config.upyun_bucket = "blog-images"
+  # upyun_bucket_domain 以后将会弃用，请改用 upyun_bucket_host
+  # config.upyun_bucket_domain = "my_bucket.files.example.com"
+  config.upyun_bucket_host = "http://blog-images.b0.upaiyun.com"
 end

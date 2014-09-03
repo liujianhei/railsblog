@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -46,5 +46,9 @@ gem 'nokogiri'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'carrierwave-qiniu'
+gem 'rest-client'
+gem 'carrierwave-upyun'
 gem 'settingslogic'
 gem 'bcrypt-ruby'
+gem 'puma'
+gem 'mysql2'
