@@ -48,6 +48,8 @@ gem 'carrierwave'
 gem 'carrierwave-qiniu'
 gem 'rest-client'
 gem 'carrierwave-upyun'
+gem 'carrierwave-aliyun'
+gem "fog"
 gem 'settingslogic'
 gem 'bcrypt-ruby'
 gem 'puma'
