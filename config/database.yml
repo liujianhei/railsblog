@@ -26,5 +26,5 @@ production:
   database: railsblog
   pool: 5
   username: railsblog
-  password: 410749277
+  password: railsblog
   socket: /var/run/mysqld/mysqld.sock
