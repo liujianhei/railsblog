@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
  
   def show
-    @article = Article.publish.where(id: params[:id]).first
+    @article = Article.publish.friendly.find(params[:id])
   end
 
   def index

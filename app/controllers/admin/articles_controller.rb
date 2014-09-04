@@ -26,7 +26,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def index
@@ -34,14 +34,14 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def update
     tags = params[:article].delete(:tags).to_s
     puts "----------------------"
     puts tags
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     puts "----------------------"
     @article.tags = []
     tags.split(",").each do |name|
@@ -62,7 +62,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.destroy
 
     redirect_to admin_articles_path
@@ -70,7 +70,7 @@ class Admin::ArticlesController < ApplicationController
    
   def autosave
     tags = params[:article].delete(:tags).to_s
-    @article = Article.find(params[:article][:id])
+    @article = Article.friendly.find(params[:article][:id])
 
     @article.tags = []
     tags.split(",").each do |name|
