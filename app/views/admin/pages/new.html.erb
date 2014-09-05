@@ -1,0 +1,77 @@
+<h1>New Page</h1>
+<%= form_for @article, url: admin_pages_path, html:{:multipart => true, :class => "form-horizontal"}  do |f| %>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= f.hidden_field :id %>
+  <div class="control-group">
+    <div class="controls">
+    <%= f.text_field :title, class: "span5"  %>
+    </div>
+  </div>
+ 
+  <div class="control-group">
+    <div class="control-label">
+    <%= f.label :tags %>
+    </div>
+    <div class="controls">
+    <%= f.text_field :tags, value: @article.tags_list,  class: "span5"  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+    <%= f.select(:status, [['publish', 'publish'], ['draft', 'draft']]) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+    <%= render "admin/articles/editor_toolbar" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+    <%#= f.cktext_area :text, rows: 10 %>
+    <%= f.text_area :text,  class: "topic-editor closewarning" %>
+    </div>
+  </div>
+ 
+  <div class="control-group">
+    <div class="controls">
+    <%= f.submit %>
+    </div>
+  </div>
+
+<% end %>
+<script>
+/*
+$(function() {
+  if ($(".edit_article").length > 0) {
+    setTimeout(autoSavePost, 6000); 
+  }    
+});
+
+function autoSavePost() {
+$.ajax({
+  type: "POST",
+  url: "/admin/articles/autosave",
+  data: $(".edit_article").serialize(),
+  dataType: "script",
+  success: function(data) {
+    console.log(data);
+  }
+});
+  setTimeout(autoSavePost, 6000);
+}
+*/
+</script>

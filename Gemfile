@@ -38,20 +38,17 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'paperclip'
-gem 'ckeditor'
+group :production do
+  gem 'mysql2'
+end
+
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
-gem 'simple_form'
 gem 'carrierwave'
 gem 'carrierwave-qiniu'
-gem 'rest-client'
-gem 'carrierwave-upyun'
-gem 'carrierwave-aliyun'
-gem "fog"
 gem 'settingslogic'
 gem 'bcrypt-ruby'
 gem 'puma'
-gem 'mysql2'
 gem 'friendly_id', '~> 5.0.0'
+gem 'bootstrap-sass'

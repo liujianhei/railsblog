@@ -1,0 +1,11 @@
+<%= link_to 'New Page', new_admin_page_path %>
+<table>
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= link_to article.title, admin_page_path(article) %>&nbsp;&nbsp;(<%= format_date(article.created_at) %>)</td>
+    <td><%= link_to 'Edit', edit_admin_page_path(article) %></td>
+    <td><%= link_to 'Destroy', admin_page_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

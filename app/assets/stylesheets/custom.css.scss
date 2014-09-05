@@ -1,0 +1,19 @@
+@import "bootstrap";
+/* universal */
+
+/* typography */
+
+
+
+ul {
+  padding: 0 0 0 30px; 
+}
+ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none; 
+  margin-bottom: 20px; 
+}
+
+.control-group:last-of-type { margin-bottom:0px; }
+.topic-editor { width:80%; height: 400px; }

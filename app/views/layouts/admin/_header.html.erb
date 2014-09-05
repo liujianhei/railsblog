@@ -1,0 +1,14 @@
+<header>
+      <nav>
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation"><%= link_to "Articles", admin_articles_path %></li>
+          <li role="presentation"><%= link_to "Pages",    admin_pages_path %></li>
+<li class="pull-right">
+<% if signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to "Sign out", signout_path, method: "delete" %>
+<% end %>
+</li>
+        </ul>
+      </nav>
+</header>

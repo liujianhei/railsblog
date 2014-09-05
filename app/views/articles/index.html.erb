@@ -1,5 +1,7 @@
-<ul>
+<h2> Articles <h2>
+
+<ul class="list-group">
 <% @articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article) %>&nbsp;&nbsp;(<%= format_date(article.created_at) %>)</li>
+  <li class="list-group-item"><%= link_to article.title, article_path(article) %>&nbsp;&nbsp;(<%= format_date(article.created_at) %>)</li>
 <% end %>
 </ul>

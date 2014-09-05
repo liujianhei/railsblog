@@ -1,0 +1,17 @@
+<header>
+      <nav>
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation"><%= link_to "Home",    '/' %></li>
+          <li role="presentation"><%= link_to "Projects", '/projects' %></li>
+          <li role="presentation"><%= link_to "About",    '/about' %></li>
+<li class="pull-right">
+<% if signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to "Sign out", signout_path, method: "delete" %>
+<% else %>
+  <%= link_to "Login", new_session_path, :class => 'navbar-link'  %>
+<% end %>
+</li>
+        </ul>
+      </nav>
+</header>

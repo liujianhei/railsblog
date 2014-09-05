@@ -1,11 +1,10 @@
-class Admin::ArticlesController < ApplicationController
+class Admin::PagesController < ApplicationController
+  layout "admin/articles"
   before_action :signed_in_user
 
   def new
     @article = Article.new(title: "无标题文本")
-    @article.save
     #redirect_to :action => :edit, :id => @article
-    redirect_to edit_admin_article_path(@article)
   end
 
   def create
@@ -18,19 +17,20 @@ class Admin::ArticlesController < ApplicationController
       @article.tags << tag
       end
  
+    @article.article_type = "page"
     if @article.save
-      redirect_to @article
+      redirect_to  action: :show, :id => @article
     else
-      render 'admin/new'
+      render 'admin/pages/new'
     end
   end
 
   def show
-    @article = Article.friendly.find(params[:id])
+    @article = Article.page.friendly.find(params[:id])
   end
 
   def index
-    @articles = Article.article
+    @articles = Article.page
   end
 
   def edit
@@ -55,9 +55,9 @@ class Admin::ArticlesController < ApplicationController
     puts "----------------------"
     if @article.update(article_params)
      # redirect_to @article
-      redirect_to admin_article_path(@article)
+      redirect_to admin_page_path(@article)
     else
-      render 'admin/articles/new'
+      render 'admin/pages/new'
     end
   end
 
@@ -65,7 +65,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.friendly.find(params[:id])
     @article.destroy
 
-    redirect_to admin_articles_path
+    redirect_to admin_pages_path
   end
    
   def autosave
@@ -90,7 +90,7 @@ class Admin::ArticlesController < ApplicationController
  
 private
   def article_params
-    params.require(:article).permit(:title, :text,:status, :image)
+    params.require(:article).permit(:title, :text, :status, :image, :type)
   end
 
 end

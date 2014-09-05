@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
  
   def show
-    @article = Article.publish.friendly.find(params[:id])
+    @article = Article.article.publish.friendly.find(params[:id])
   end
 
   def index
-    @articles = Article.publish
+    @articles = Article.article.publish
   end
 
 end

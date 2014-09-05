@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+#  mount Ckeditor::Engine => '/ckeditor'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -63,5 +63,8 @@ Rails.application.routes.draw do
   namespace :admin do
     patch 'articles/autosave' => 'articles#autosave', as: :autosave_admin_article_path
     resources :articles
+    resources :pages
   end
+
+  get ':page' => 'pages#show'
 end
