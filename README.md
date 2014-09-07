@@ -1,4 +1,4 @@
-== Railsblog
+# Railsblog
 
 rails 开发练习项目
 
