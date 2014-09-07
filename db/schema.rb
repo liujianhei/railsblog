@@ -11,26 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905062630) do
+ActiveRecord::Schema.define(version: 20140905023546) do
 
-# Could not dump table "articles" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "ckeditor_assets", force: true do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    limit: 30
-    t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
+    t.string   "status",       default: "draft"
+    t.string   "slug"
+    t.string   "article_type", default: "article"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "articles", ["slug"], name: "index_articles_on_slug"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
