@@ -3,7 +3,7 @@ class Admin::PagesController < ApplicationController
   before_action :signed_in_user
 
   def new
-    @article = Article.new(title: "无标题文本")
+    @article = Article.new(title: "无标题文本", text: "正文")
     #redirect_to :action => :edit, :id => @article
   end
 

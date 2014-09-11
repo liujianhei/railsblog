@@ -3,6 +3,8 @@ class Article < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :history]
   validates :title, presence: true,
                     length: { minimum: 1 }
+  validates :text, presence: true,
+                    length: { minimum: 1 }
   has_many :taggings
   has_many :tags, :through => :taggings
 
